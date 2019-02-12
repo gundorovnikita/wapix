@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<table>
+<tr>
+	<td>Товар</td>
+	<td>Количество</td>
+	<td>Цена</td>
+</tr>
+{% for item in cart.items.all %}
+<tr>
+	<td>{{item.product}}</td>
+	<td>{{item.qty}}</td>
+	<td>{{item.item_total}}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block category %}
+  {% for category in category %}
+    {% if category == category_self %}
+      <div class="selection">{{ category.name }}</div>
+    {% else %}
+      <div class="category_detail">
+          <a class='navigation__link' href="{{category.get_absolute_url}}">{{ category.name }}</a>
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
+
+{% block content %}
+<div class="col-md-10">
+  <div class="product_list">
+    {% for mark in mark %}
+      <div class="product_detail">
+        <a href="{{ mark.get_absolute_url }}">{{ mark.name }}</a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
