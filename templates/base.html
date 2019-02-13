@@ -14,13 +14,19 @@
                 <div class="col-md-2">
                     <div class="logo"><a class="navigation__link" href="{% url 'homepage_url'%}">skix</a></div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-7">
                     <div class="navigation">
                         <a href="{% url 'product_list_url' %}" class="navigation__link">Каталог</a>
                         <a href="" class="navigation__link">Акции и скидки</a>
                         <a href="" class="navigation__link">Новости</a>
                         <a href="" class="navigation__link">Контакты</a>
                     </div>
+                </div>
+                <div class="col-md-2">
+                  <form action="{% url 'product_list_url' %}">
+                    <input type="search" name="search">
+                    <button type="submit">Search</button>
+                  </form>
                 </div>
                 <div class="col-md-1">
                   <div class="cart">

@@ -1,10 +1,16 @@
 from django.shortcuts import render
 from .models import *
 from django.http import HttpResponseRedirect
+
+from django.db.models import Q
 # Create your views here.
 
 def product_list(request):
-    product = Product.objects.all()
+    product_search = request.GET.get('search', '')
+    if product_search:
+        product = Product.objects.filter(Q(name__icontains = product_search) | Q(description__icontains = product_search))
+    else:
+        product = Product.objects.all()
     category = Category.objects.all()
     context = {
         'product':product,
@@ -88,3 +94,4 @@ def add_to_cart_view(request, slug):
         cart.save()
     return HttpResponseRedirect('/catalog/cart/')
 
+    
